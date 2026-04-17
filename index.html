@@ -10,6 +10,15 @@
 </head>
 
 <body>
+    <script src="script.js"></script>
+    <script>
+        // تحميل الإحصائيات العامة
+        const stats = WordCounter.getPublicStats();
+        if (document.getElementById('totalUsers')) {
+            document.getElementById('totalUsers').innerText = stats.totalUsers;
+            document.getElementById('totalWords').innerText = stats.totalWords.toLocaleString();
+        }
+    </script>
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
