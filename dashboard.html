@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم | Word Counter Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">📝</span>
+                <span class="logo-text">Word Counter <span class="pro">Pro</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="dashboard.html" class="active">لوحة التحكم</a>
+                <a href="#" id="logoutBtn" class="logout-btn">🚪 خروج</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- بطاقات الإحصائيات -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📄</div>
+                <div class="stat-info">
+                    <h3 id="totalTexts">0</h3>
+                    <p>النصوص المحللة</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📝</div>
+                <div class="stat-info">
+                    <h3 id="totalWords">0</h3>
+                    <p>إجمالي الكلمات</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔤</div>
+                <div class="stat-info">
+                    <h3 id="totalChars">0</h3>
+                    <p>إجمالي الحروف</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🤖</div>
+                <div class="stat-info">
+                    <h3 id="aiTasks">0</h3>
+                    <p>مهام AI</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- مستوى التقدم -->
+        <div class="level-section">
+            <div class="level-header">
+                <span id="levelName">🥉 برونزي</span>
+                <span id="levelProgress">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="levelFill"></div>
+            </div>
+            <p id="nextLevelText">تحتاج 500 كلمة للوصول للذهبي 🥇</p>
+        </div>
+
+        <!-- محرر النصوص -->
+        <div class="editor-section">
+            <div class="editor-header">
+                <h2>✏️ محرر النصوص</h2>
+                <div class="mode-switch">
+                    <button class="mode-btn" data-mode="normal">📝 عادي</button>
+                    <button class="mode-btn" data-mode="ai">🤖 AI Pro</button>
+                </div>
+            </div>
+            <textarea id="textInput" placeholder="اكتب أو الصق نصك هنا..."></textarea>
+            <div class="editor-actions">
+                <button id="analyzeBtn" class="btn-analyze">🔍 تحليل النص</button>
+                <button id="clearBtn" class="btn-clear">🗑️ مسح</button>
+            </div>
+        </div>
+
+        <!-- نتائج التحليل -->
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h2>📊 نتائج التحليل</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <span class="result-label">الكلمات</span>
+                    <span class="result-value" id="resultWords">0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">الحروف</span>
+                    <span class="result-value" id="resultChars">0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">الجمل</span>
+                    <span class="result-value" id="resultSentences">0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">الفقرات</span>
+                    <span class="result-value" id="resultParagraphs">0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">وقت القراءة</span>
+                    <span class="result-value" id="resultReadingTime">0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">الوضع</span>
+                    <span class="result-value" id="resultMode">-</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- آخر العمليات -->
+        <div class="history-section">
+            <div class="history-header">
+                <h2>📜 آخر العمليات</h2>
+                <button id="clearHistoryBtn" class="btn-clear-history">🗑️ مسح السجل</button>
+            </div>
+            <div id="historyList" class="history-list">
+                <p class="empty-history">لا توجد عمليات بعد. ابدأ بتحليل نص!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

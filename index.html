@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter Pro | عد الكلمات باحترافية</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">📝</span>
+                <span class="logo-text">Word Counter <span class="pro">Pro</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">الرئيسية</a>
+                <a href="dashboard.html">لوحة التحكم</a>
+                <a href="login.html" class="login-btn" id="authBtn">دخول</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🔢 <span class="gradient-text">Word Counter Pro</span></h1>
+            <p>أداة احترافية لعد الكلمات والحروف والجمل مع إحصائيات دقيقة وتقارير متقدمة</p>
+            <div class="hero-buttons">
+                <a href="dashboard.html" class="btn-primary">✨ ابدأ الآن مجاناً</a>
+                <a href="#features" class="btn-secondary">اكتشف المميزات ⬇️</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalUsers">0</div>
+                <div class="stat-label">مستخدم نشط</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalWords">0</div>
+                <div class="stat-label">كلمة تمت معالجتها</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2>⚡ مميزات خارقة</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>إحصائيات فورية</h3>
+                <p>عدد الكلمات، الحروف، الجمل، الفقرات، وقت القراءة</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>وضع AI المتقدم</h3>
+                <p>تحليل ذكي وتوصيات لتحسين النصوص</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>تتبع التقدم</h3>
+                <p>سجل كامل لجميع عملياتك وتحليلك اليومي</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3>نظام المستويات</h3>
+                <p>تدرج من برونزي إلى أسطوري حسب إنجازاتك</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Word Counter Pro | صنع بالحب 🔥</p>
+    </footer>
+
+    <script>
+        // جلب الإحصائيات العامة
+        fetch('/api/public/stats')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('totalUsers').innerText = data.totalUsers || 0;
+                document.getElementById('totalWords').innerText = (data.totalWordsProcessed || 0).toLocaleString();
+            })
+            .catch(err => console.error(err));
+
+        // التحقق من تسجيل الدخول
+        const token = localStorage.getItem('token');
+        if (token) {
+            document.getElementById('authBtn').innerText = 'لوحة التحكم';
+            document.getElementById('authBtn').href = 'dashboard.html';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول | Word Counter Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2>🔐 تسجيل الدخول</h2>
+                <p>أهلاً بك مرة أخرى</p>
+            </div>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>👤 اسم المستخدم</label>
+                    <input type="text" id="username" placeholder="أدخل اسم المستخدم" required>
+                </div>
+                <div class="input-group">
+                    <label>🔒 كلمة المرور</label>
+                    <input type="password" id="password" placeholder="أدخل كلمة المرور" required>
+                </div>
+                <button type="submit" class="btn-auth">دخول ➡️</button>
+            </form>
+            <p class="auth-footer">ليس لديك حساب؟ <a href="register.html">سجل الآن</a></p>
+            <div id="errorMsg" class="error-msg"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

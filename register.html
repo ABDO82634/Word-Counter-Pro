@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب | Word Counter Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2>✨ إنشاء حساب جديد</h2>
+                <p>انضم إلى عائلة Word Counter Pro</p>
+            </div>
+            <form id="registerForm">
+                <div class="input-group">
+                    <label>👤 اسم المستخدم</label>
+                    <input type="text" id="username" placeholder="أدخل اسم المستخدم" required>
+                </div>
+                <div class="input-group">
+                    <label>🔒 كلمة المرور</label>
+                    <input type="password" id="password" placeholder="أدخل كلمة المرور" required>
+                </div>
+                <div class="input-group">
+                    <label>✅ تأكيد كلمة المرور</label>
+                    <input type="password" id="confirmPassword" placeholder="أعد كتابة كلمة المرور" required>
+                </div>
+                <button type="submit" class="btn-auth">🚀 إنشاء حساب</button>
+            </form>
+            <p class="auth-footer">لديك حساب بالفعل؟ <a href="login.html">سجل دخول</a></p>
+            <div id="errorMsg" class="error-msg"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
